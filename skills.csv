@@ -1,0 +1,53 @@
+category,skill,years
+Cloud Technologies,AWS (extensive experience),20
+Cloud Technologies,GCP,20
+Cloud Technologies,Azure,20
+Cloud Technologies,Cloud migrations,20
+Cloud Technologies,Cloud data warehouse concepts,20
+Cloud Technologies,AWS Lambda Functions,20
+Cloud Technologies,AWS CloudWatch,20
+Data Engineering,ETL tools,20
+Data Engineering,Data ingestion and analytics,20
+Data Engineering,Structured and unstructured data handling,20
+Data Engineering,Data warehousing concepts,20
+Data Engineering,Data pipeline design and implementation,20
+Data Engineering,Data flow planning,20
+Data Engineering,Troubleshooting data systems,20
+Data Engineering,Data quality management and governance,20
+Data Engineering,Apache Airflow, dbt,20
+Data Engineering,Business Intelligence (BI) concepts,20
+Data Engineering,System integrations,20
+Data Engineering,AWS DataPipeline, Glue, Step Functions,20
+Data Engineering,DataDog,20
+Programming Languages,SQL,20
+Programming Languages,Python,20
+Programming Languages,Java,20
+Programming Languages,C,20
+Programming Languages,Linux/Unix command line,20
+Programming Languages,RESTful APIs,20
+Programming Languages,Version control systems (e.g., Git),20
+Programming Languages,Software development life cycle (SDLC),20
+Programming Languages,Code review,20
+Programming Languages,Software testing and quality assurance,20
+Big Data Technologies,AWS Kinesis Data Streams,20
+Big Data Technologies,AWS Elastic MapReduce,20
+Big Data Technologies,Apache PySpark,20
+Big Data Technologies,Jupyter, Pandas, PyTorch, Numpy, SciPy,20
+Big Data Technologies,Matplotlib, Seaborn, Plotly,20
+Agile & Project Management,Agile methodologies,20
+Agile & Project Management,Scrum framework (Certified Scrum Master),20
+Agile & Project Management,Project management,20
+Agile & Project Management,Team collaboration,20
+Agile & Project Management,Time management,20
+Data Modeling,Object modeling (UMLs with business),20
+Data Modeling,Data modeling (ERDs with developers),20
+Data Modeling,Relational data modeling (OLTP - Tables, Transactions, 3NF),20
+Data Modeling,Multi-dimensional data modeling (OLAP - Facts, Dimensions, 1NF),20
+Soft Skills,Business requirements analysis,20
+Soft Skills,Technical requirements documentation,20
+Soft Skills,Problem-solving skills,20
+Soft Skills,Analytical thinking,20
+Soft Skills,Communication skills (written and verbal),20
+Soft Skills,Attention to detail,20
+Soft Skills,Continuous learning (keeping up with new technologies),20
+Soft Skills,Data security and privacy concepts,20

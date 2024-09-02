@@ -61,6 +61,7 @@ h1 {
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+    color: white;
 }
 .skill-details {
     display: none;

@@ -44,15 +44,16 @@ function loadSkills() {
         .then(response => response.text())
         .then(data => {
             const skills = parseCSV(data);
+            const categories = categorizeSkills(skills);
             const skillsContainer = document.getElementById('skills-container');
-            skillsContainer.innerHTML = generateHTML(skills);
+            skillsContainer.innerHTML = generateHTML(categories);
         })
         .catch(error => console.error('Error loading skills:', error));
 }
 
 function parseCSV(data) {
     const lines = data.split('\n');
-    const result = [];
+    const skillDetails = [];
     const headers = lines[0].split(',');
 
     for (let i = 1; i < lines.length; i++) {
@@ -63,25 +64,44 @@ function parseCSV(data) {
             obj[headers[j].trim()] = currentline[j].trim();
         }
         console.log(`obj: ${JSON.stringify(obj)}`);
-        result.push(obj);
+        skillDetails.push(obj);
     }
-
-    // group all skill-details by category and sort by decreasing skill-detail.age
-    // compoute category years as max skill-detail years
-    // sort categories alphabetically
-
-    return result;
+    return skillDetails;
 }
 
-function generateHTML(skills) {
-    const categories = {};
-
-    skills.forEach(skill => {
-        if (!categories[skill.category]) {
-            categories[skill.category] = [];
+// returns an object/dict with categories as keys and 
+// arrays of skillDetail objects as values
+function categorizeSkills(skillDetails) {
+    let categories = {};
+    for ( let i = 0; i < skillDetails.length; i++) {
+        let category = skillDetails[i].category;
+        if (!Object.keys(categories).includes(category)) {
+            categories[category] = [];
         }
-        categories[skill.category].push(skill);
-    });
+        categories[category].push(skillDetails[i]);
+    }
+    // categories is an object/dict with values as Arrays of skillDetail objects.
+    // In order to sort the array of skillDetail objects for each category
+    // we create categoryArrays which is an Array of Arrays of skillDetail objects
+    let categoryArrays = Object.values(categories); 
+    for ( let i = 0; i < categoryArrays.length; i++) {
+        // each categoryArray[i] is a category key value pair
+        // Sort the array of skillDetail objects for this category
+        categoryArrays[i].sort((a, b) => {
+            return b.years - a.years;
+        });
+    }
+    // Then use the sorted Array of skillDetail objects
+    // to update the values for each category key in the 
+    // original categories object/dict
+    let categoryKeys = Object.keys(categories);
+    for (let i = 0; i < categoryKeys.length; i++) {
+        categories[categoryKeys[i]] = categoryArrays[i];
+    }
+    return categories;
+}
+
+function generateHTML(categories) {
 
     let html = '';
 
@@ -90,7 +110,7 @@ function generateHTML(skills) {
         html += `<div class="skill-bar">`;
         html += `<div class="skill-fill" style="width: ${categories[category][0].percentage}%;"></div>`;
         html += `<span class="skill-name">${category}</span>`;
-        html += `<span class="skill-years">${categories[category][0].years} years</span>`;
+        html += `<span class="skill-years"> max ${categories[category][0].years} years</span>`;
         html += `</div>`;
         html += `<ul class="skill-details">`;
 

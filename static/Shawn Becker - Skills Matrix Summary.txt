@@ -1,4 +1,4 @@
-Category,Skill,Years experience
+Category,Skill,Years
 Databases,Relational (PostgreSQL MySQL Oracle SQLServer),15
 Databases,Warehouse OLAP (Redshift columnar),3
 Databases,Dimensional (StarSchema Type 2 SCD),3

@@ -1,77 +1,112 @@
-/* Example styles */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --bar-bg-color: #e0e0e0;
+    --bar-fill-color: #4CAF50;
+}
+
+.dark-mode {
+    --bg-color: #464646;
+    --text-color: #ffffff;
+    --bar-bg-color: #303030;
+    --bar-fill-color: #45a049;
+}
+
 body {
     font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
-.controls {
-    display: flex;
-    justify-content: flex-end;
-    margin: 10px;
-}
-
-.controls button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    cursor: pointer;
+h1 {
+    text-align: center;
 }
 
 .skill-category {
     margin-bottom: 20px;
-}
-
-.skill-bar {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.skill-fill {
-    height: 10px;
-    background-color: #4caf50;
-    margin-right: 10px;
+    position: relative;
 }
 
 .skill-name {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    color: white;
     font-weight: bold;
-    margin-right: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 70px);
+}
+
+.skill-bar {
+    width: 100%;
+    height: 30px;
+    background-color: var(--bar-bg-color);
+    position: relative;
+}
+
+.skill-fill {
+    height: 100%;
+    background-color: var(--bar-fill-color);
 }
 
 .skill-years {
-    color: #888;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
-
 .skill-details {
-    list-style-type: none;
-    padding: 0;
+    display: none;
+    margin-top: 5px;
 }
 
 .skill-details li {
-    margin-bottom: 5px;
-}
+    display: flex; /* Make li elements block-level to stretch to the right-most side */
+    justify-content: space-between; /* Ensure space between the name and years */
+    align-items: center; /* Align items vertically in the center */
+    margin-bottom: 2px; /* Adjust this value to decrease vertical spacing */
+    padding: 0; /* Remove any default padding */
 
+}
 .skill-detail-name {
-    font-weight: bold;
+    flex: 1; /* Allow the name to take up available space */
 }
 
 .skill-detail-years {
-    color: #888;
-    margin-left: 5px;
+    text-align: right;
+    flex: 0; /* Prevent the years from stretching */
+    display: block; /* Ensure it takes up the full width of the parent li */
+    white-space: nowrap;
 }
 
-body.dark-mode {
-    background-color: #333;
-    color: #fff;
+ul {
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding-left: 20px;
 }
 
-body.dark-mode .skill-fill {
-    background-color: #ff9800;
+.toggle-button {
+    position: fixed;
+    padding: 5px 10px;
+    background-color: var(--bar-fill-color);
+    color: var(--bg-color);
+    border: none;
+    cursor: pointer;
 }
 
-body.dark-mode .skill-years,
-body.dark-mode .skill-detail-years {
-    color: #ccc;
+#mode-toggle {
+    top: 10px;
+    right: 10px;
 }
 
-.hidden {
-    display: none;
+#details-toggle {
+    top: 50px;
+    right: 10px;
 }
